@@ -1,4 +1,4 @@
-import{seed,eligible,remaining,orderRemaining,groups,produce,unproduce,totals}from'./model.mjs?v=4';
+import{seed,eligible,remaining,orderRemaining,groups,produce,unproduce,totals}from'./model.mjs?v=5';
 const $=s=>document.querySelector(s),KEY='oyakoko-online-demo-v2';
 let orders=seed(),view='time',message='';
 const timeOpen=new Map(),completedOpen=new Map();
@@ -6,7 +6,7 @@ const TIME_OPEN_KEY='oyakoko-online-time-open-v1';
 try{const stored=JSON.parse(localStorage.getItem(TIME_OPEN_KEY)||'[]');if(Array.isArray(stored))for(const [key,value]of stored)timeOpen.set(key,value===true);}catch{}
 const timeOpenKey=time=>$('#selectedDate').value+'|'+time;
 try{const v=JSON.parse(localStorage.getItem(KEY));if(v?.orders)orders=v.orders;}catch{}
-for(const entry of seed())if(entry.id==='DEMO-1013-1130'&&!orders.some(o=>o.id===entry.id))orders.push(entry);
+for(const entry of seed())if(['DEMO-1013-1130','DEMO-1013-1700-1','DEMO-1013-1700-2'].includes(entry.id)&&!orders.some(o=>o.id===entry.id))orders.push(entry);
 function save(){try{localStorage.setItem(KEY,JSON.stringify({orders}));return true;}catch{$('#notice').textContent='保存できません。';return false;}}
 function mutate(label,fn){fn();render();save();}
 
