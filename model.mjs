@@ -696,6 +696,39 @@ export const seed=()=>[
         "made": 0
       }
     ]
+  },
+  {
+    "id": "DEMO-1013-1130",
+    "date": "2026-10-13",
+    "time": "11:30",
+    "confirmed": true,
+    "items": [
+      {
+        "product": "五目炊込み",
+        "qty": 1,
+        "made": 0
+      },
+      {
+        "product": "鮭",
+        "qty": 1,
+        "made": 0
+      },
+      {
+        "product": "ツナマヨ",
+        "qty": 1,
+        "made": 0
+      },
+      {
+        "product": "昆布",
+        "qty": 1,
+        "made": 0
+      },
+      {
+        "product": "だし巻き卵",
+        "qty": 2,
+        "made": 0
+      }
+    ]
   }
 ];
 export const eligible=o=>o.confirmed&&!!o.time&&!o.canceled;
