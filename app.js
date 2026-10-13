@@ -29,3 +29,17 @@ document.addEventListener('click',e=>{const summary=e.target.closest('.timecard 
 document.addEventListener("click",e=>{const summary=e.target.closest(".completed-group > summary");if(summary)completedOpen.set(summary.parentElement.dataset.day,!summary.parentElement.open)},true);
 document.addEventListener('click',e=>{const button=e.target.closest('[data-complete-time]');if(!button)return;e.preventDefault();if(button.disabled)return;const matching=orders.filter(o=>o.date===$('#selectedDate').value&&eligible(o)&&o.time===button.dataset.completeTime);if(!matching.length||matching.some(o=>orderRemaining(o)>0))return;mutate('完了を変更',()=>{for(const o of matching)o.productionCompleted=button.dataset.reopen!=='true';});});
 function tick(){$('#clock').textContent=new Date().toLocaleTimeString('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'});}tick();setInterval(()=>{tick();render();},10000);$('#refresh').onclick=()=>location.reload();$('#selectedDate').value=orders.some(o=>o.date===japanDate())?japanDate():'2026-10-10';render();
+
+// iPad Safariで連続タップの拡大を抑え、＋1の連続操作は維持する。
+document.addEventListener('dblclick',event=>event.preventDefault(),{passive:false});
+let lastTap={time:0,x:0,y:0};
+document.addEventListener('touchend',event=>{
+ if(event.changedTouches.length!==1||event.touches.length)return;
+ const touch=event.changedTouches[0],now=Date.now(),target=event.target;
+ const doubleTap=now-lastTap.time<350&&Math.abs(touch.clientX-lastTap.x)<24&&Math.abs(touch.clientY-lastTap.y)<24;
+ lastTap={time:now,x:touch.clientX,y:touch.clientY};
+ if(!doubleTap||!event.cancelable||target.closest('input,select,textarea'))return;
+ event.preventDefault();
+ const control=target.closest('button,summary');
+ if(control&&!control.disabled)control.click();
+},{passive:false});

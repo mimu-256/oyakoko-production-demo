@@ -82,3 +82,5 @@ html,body,main,summary,input,select,dialog{touch-action:manipulation}
 
 .row>button[data-act="all"]{white-space:nowrap}
 @media(min-width:651px) and (max-width:900px){.row{grid-template-columns:minmax(110px,1fr) 48px 58px 64px 154px 140px}.row>button[data-act="all"]{padding:10px 6px}}.date-group{padding:0;border:1px solid #ddd8cb;margin-bottom:18px}.date-group>summary{list-style:none;cursor:pointer}.date-group>summary::-webkit-details-marker{display:none}.date-orders{padding:10px 16px}.date-fold::after{content:"＋ 開く"}.date-group[open] .date-fold::after{content:"− 閉じる"}
+
+*{touch-action:manipulation}
