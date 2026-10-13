@@ -729,6 +729,57 @@ export const seed=()=>[
         "made": 0
       }
     ]
+  },
+  {
+    "id": "DEMO-1013-1700-1",
+    "date": "2026-10-13",
+    "time": "17:00",
+    "confirmed": true,
+    "items": [
+      {
+        "product": "鮭",
+        "qty": 1,
+        "made": 0
+      },
+      {
+        "product": "明太クリームチーズ",
+        "qty": 5,
+        "made": 0
+      },
+      {
+        "product": "梅かつお",
+        "qty": 3,
+        "made": 0
+      }
+    ]
+  },
+  {
+    "id": "DEMO-1013-1700-2",
+    "date": "2026-10-13",
+    "time": "17:00",
+    "confirmed": true,
+    "items": [
+      {
+        "product": "鮭",
+        "qty": 4,
+        "made": 0
+      },
+      {
+        "product": "梅かつお",
+        "qty": 2,
+        "made": 0
+      },
+      {
+        "product": "明太子",
+        "qty": 3,
+        "made": 0
+      },
+      {
+        "product": "肉そぼろ",
+        "qty": 2,
+        "made": 0
+      }
+    ]
   }
 ];
 export const eligible=o=>o.confirmed&&!!o.time&&!o.canceled;
