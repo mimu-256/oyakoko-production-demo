@@ -1,0 +1,84 @@
+:root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#292b26;background:#fff;font-size:18px}*{box-sizing:border-box}body{margin:0}header{padding:24px 30px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ddd8cb}h1{font-size:28px;margin:6px 0}small{display:block;font-size:14px;color:#67685d}#clock{font-size:32px}.demo{background:#fafafa;padding:10px 30px;font-size:15px}#save{float:right}main{max-width:1400px;margin:auto;padding:24px}.summary{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:14px}.summary>div{background:#fff;border:1px solid #ded9cd;border-radius:3px;padding:20px}.summary b{font-size:38px;display:block}.summary .next{background:#765344;color:white}.summary .next small{color:#e1e8df}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:24px 0 12px}nav{display:flex;gap:6px;flex:1}button,input,select{font:inherit;min-height:52px;border:1px solid #b8baaf;border-radius:4px;padding:10px 16px;background:white;color:#292b26}button{cursor:pointer;touch-action:manipulation}button:disabled{opacity:.45;cursor:default}button.active,.plus{background:#765344;color:white;border-color:#765344}button:focus-visible,input:focus-visible{outline:3px solid #a36b15;outline-offset:3px}.plus{font-size:22px;font-weight:bold;min-width:110px}.card{background:#fff;border:1px solid #ddd8cb;border-radius:3px;margin-bottom:18px;overflow:hidden}.cardhead{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e6e2d8;gap:12px;flex-wrap:wrap}.cardhead h2{margin:0;font-size:28px}.warning{color:#8c301f;background:#fffaf7;border-left:6px solid #b44c31}.badge{font-size:15px;border-radius:3px;padding:6px 10px;background:#f5f3ef;display:inline-block;margin:3px}.warn{background:#ffebdc;color:#8c301f}.done{color:#2b6345}.row{display:grid;grid-template-columns:minmax(180px,1fr) 80px 90px 100px 110px 150px;gap:12px;align-items:center;padding:16px 22px;border-bottom:1px solid #ebe7de}.row:last-child{border:0}.row.heading{font-size:14px;background:#faf9f6;padding-top:10px;padding-bottom:10px}.product{font-size:22px;font-weight:650}.number{font-size:28px;font-weight:700}.remain{font-size:36px;color:#963f28}.complete{font-size:21px;color:#2b6345}.orderbody{padding:18px 22px}.orderbody p{margin:8px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}#notice{min-height:25px;color:#775424}details{padding:18px;background:#fff;border-radius:3px}summary{cursor:pointer;min-height:40px}footer{font-size:14px;color:#65675e;padding:22px 0}label{display:inline-flex;align-items:center;gap:8px}.empty{padding:26px}.muted{color:#696b60}progress{width:100%;height:8px;accent-color:#344b3c} @media(max-width:900px){main{padding:14px}.summary{grid-template-columns:1fr 1fr}.row{grid-template-columns:minmax(140px,1fr) 50px 60px 65px 90px 120px;gap:6px;padding:14px}.row button{padding:10px 6px}.product{font-size:19px}}@media(max-width:650px){header{padding:16px}h1{font-size:23px}.row{grid-template-columns:1fr 1fr 1fr}.row.heading{display:none}.product{grid-column:1/-1}.row .number:before{content:attr(data-label);display:block;font-size:12px;color:#666}.row button{grid-column:auto}.summary b{font-size:30px}nav{flex-basis:100%}.demo{padding:10px 16px}#save{float:none;display:block}}
+
+.plus{white-space:nowrap;font-size:20px;padding:10px 8px}
+
+/* 白い予約帳を思わせる、素朴な店内表示 */
+header{border-bottom:2px solid #765344}
+h1,.cardhead h2{font-family:inherit;font-weight:700;letter-spacing:.04em}
+h1{font-size:30px}
+.summary>div{border:0;border-right:1px solid #ddd8cb;padding:16px 20px}
+.summary>div:last-child{border-right:0}
+.summary .next{background:#fff;color:#292b26;border-left:4px solid #765344}
+.summary .next small{color:#67685d}
+.summary .next b{color:#765344}
+.card{border:0;border-top:2px solid #a69a89;border-bottom:1px solid #ddd8cb}
+.cardhead{background:#fff;padding-top:20px;padding-bottom:20px}
+.cardhead.warning{background:#fffaf7}
+nav button{border-color:transparent;background:#fff;border-radius:0}
+nav button.active{background:#fff;color:#765344;border-bottom:3px solid #765344;font-weight:700}
+.plus{background:#fff;color:#765344;border:2px solid #765344}
+.plus:active{background:#f3ebe5}
+details{border-top:1px solid #ddd8cb;padding-left:0;padding-right:0}
+@media(max-width:900px){.summary>div:nth-child(2){border-right:0}}
+
+@media(max-width:900px){.row .plus{min-width:0;font-size:17px;padding:10px 4px}.row button{min-width:0}}
+
+.timecard{padding:0}.timecard>summary{list-style:none;cursor:pointer;min-height:76px}.timecard>summary::-webkit-details-marker{display:none}.time-title{font-size:28px;font-weight:700;letter-spacing:.04em}.fold-label{display:inline-block;margin-left:14px;font-size:16px;color:#67685d}.fold-label::after{content:"＋ 開く"}.timecard[open] .fold-label::after{content:"− 閉じる"}.timecard>summary:focus-visible{outline:3px solid #a36b15;outline-offset:-3px}
+
+.product-table{width:100%;border-collapse:collapse;margin:24px 0;text-align:left}.product-table thead th{font-size:17px;font-weight:500;color:#67685d;padding:14px 22px;border-bottom:2px solid #a69a89}.product-table tbody th{font-size:23px;font-weight:600;padding:22px;border-bottom:1px solid #ebe7de}.product-table td{font-size:32px;font-weight:700;padding:22px;border-bottom:1px solid #ebe7de}.product-table td span{font-size:16px;font-weight:400;margin-left:6px}.product-table th:not(:first-child),.product-table td{text-align:right}body[data-view="product"] #undo,body[data-view="product"] #notice,body[data-view="product"] .toolbar>label{display:none}@media(max-width:650px){.product-table tbody th{font-size:19px;padding:18px 8px}.product-table td{padding:18px 8px;font-size:28px}.product-table thead th{padding:12px 8px}}
+
+.time-edit{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding-bottom:18px;margin-bottom:12px;border-bottom:1px solid #ebe7de}.time-edit input{font-size:24px}.time-edit .muted{font-size:15px}
+
+
+.summary{grid-template-columns:1fr 1fr}.summary-unit{font-size:18px;font-weight:400;margin-left:8px}
+
+.row{grid-template-columns:minmax(140px,1fr) 65px 80px 85px 174px 150px}.count-buttons{display:flex;align-items:center;gap:8px}.count-buttons .minus{min-width:52px;padding:10px 8px;color:#67685d}.count-buttons .plus{min-width:0;flex:1;font-size:18px;padding:10px 6px}@media(max-width:900px){.row{grid-template-columns:minmax(120px,1fr) 48px 58px 64px 154px 116px;gap:6px}.count-buttons{gap:6px}.count-buttons .plus{font-size:17px}}@media(max-width:650px){.row{grid-template-columns:1fr 1fr 1fr}.count-buttons{grid-column:1/3}.row>button[data-act="all"]{grid-column:3}}
+
+.date-selector{padding:0 0 18px}.date-selector input{font-size:22px}
+
+#notice:empty{display:none}
+
+.date-selector{display:flex;align-items:center;justify-content:space-between;gap:16px}
+
+.date-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.date-controls button{min-width:70px}@media(max-width:650px){.date-selector{align-items:flex-start}.date-controls{gap:8px}}
+
+#selectedWeekday{font-size:20px;font-weight:600;white-space:nowrap}
+
+.holiday{color:#b23b32!important}.saturday{color:#2868a1!important}
+
+
+
+
+
+
+
+
+@media(min-width:650px){
+}
+
+
+/* 価格のまとまりを列の途中で分割しない */
+@media(min-width:850px) and (orientation:landscape){
+}
+
+
+
+
+
+/* iPad Safariの日付欄を、隣の入力欄へはみ出させない */
+
+.time-complete-actions{display:flex;justify-content:flex-end;padding:12px 22px;border-top:1px solid #ddd8cb}.time-complete-actions button{font-weight:bold}
+
+.timecard>summary [data-complete-time]{font-size:18px;min-height:48px;font-weight:bold;white-space:nowrap}.timecard>summary .time-title{margin-right:auto}
+
+/* ダブルタップによる拡大を抑え、スクロール・ピンチ操作は保つ */
+html,body,main,summary,input,select,dialog{touch-action:manipulation}
+
+.count-buttons .plus{background:#fff;color:#67685d;border:1px solid #b8baaf}.count-buttons .minus{background:#fff;color:#765344;border:2px solid #765344}.count-buttons .minus:active{background:#f3ebe5}
+
+.count-buttons .plus,.row>button[data-act="all"]{border-width:3px}
+
+.count-buttons .plus,.row>button[data-act="all"]{background:#fff;color:#765344;border:3px solid #765344}
+
+.row>button[data-act="all"]{white-space:nowrap}
+@media(min-width:651px) and (max-width:900px){.row{grid-template-columns:minmax(110px,1fr) 48px 58px 64px 154px 140px}.row>button[data-act="all"]{padding:10px 6px}}.date-group{padding:0;border:1px solid #ddd8cb;margin-bottom:18px}.date-group>summary{list-style:none;cursor:pointer}.date-group>summary::-webkit-details-marker{display:none}.date-orders{padding:10px 16px}.date-fold::after{content:"＋ 開く"}.date-group[open] .date-fold::after{content:"− 閉じる"}
