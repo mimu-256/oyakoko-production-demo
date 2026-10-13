@@ -84,3 +84,7 @@ html,body,main,summary,input,select,dialog{touch-action:manipulation}
 @media(min-width:651px) and (max-width:900px){.row{grid-template-columns:minmax(110px,1fr) 48px 58px 64px 154px 140px}.row>button[data-act="all"]{padding:10px 6px}}.date-group{padding:0;border:1px solid #ddd8cb;margin-bottom:18px}.date-group>summary{list-style:none;cursor:pointer}.date-group>summary::-webkit-details-marker{display:none}.date-orders{padding:10px 16px}.date-fold::after{content:"＋ 開く"}.date-group[open] .date-fold::after{content:"− 閉じる"}
 
 *{touch-action:manipulation}
+
+/* 完成した商品名を取り消し線とOKで表示 */
+.row:has(.number.complete) .product,.product-table tr:has(td.complete) th[scope="row"]{text-decoration:line-through;text-decoration-thickness:2px}
+.row:has(.number.complete) .product::after,.product-table tr:has(td.complete) th[scope="row"]::after{content:"OK";display:inline-block;text-decoration:none;margin-left:8px;font-size:16px;font-weight:700;color:#2b6345;vertical-align:middle}
