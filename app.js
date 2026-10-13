@@ -1,5 +1,5 @@
-import{seed,eligible,remaining,orderRemaining,groups,produce,unproduce,totals}from'./model.mjs';
-const $=s=>document.querySelector(s),KEY='oyakoko-online-demo-v1';
+import{seed,eligible,remaining,orderRemaining,groups,produce,unproduce,totals}from'./model.mjs?v=2';
+const $=s=>document.querySelector(s),KEY='oyakoko-online-demo-v2';
 let orders=seed(),view='time',message='';
 const timeOpen=new Map(),completedOpen=new Map();
 const TIME_OPEN_KEY='oyakoko-online-time-open-v1';
@@ -28,4 +28,4 @@ document.addEventListener("toggle",e=>{if(e.target.matches(".timecard")&&e.targe
 document.addEventListener('click',e=>{const summary=e.target.closest('.timecard > summary');if(!summary||e.target.closest('[data-complete-time]'))return;const card=summary.parentElement;timeOpen.set(card.dataset.openKey,!card.open);try{localStorage.setItem(TIME_OPEN_KEY,JSON.stringify([...timeOpen]));}catch{}},true);
 document.addEventListener("click",e=>{const summary=e.target.closest(".completed-group > summary");if(summary)completedOpen.set(summary.parentElement.dataset.day,!summary.parentElement.open)},true);
 document.addEventListener('click',e=>{const button=e.target.closest('[data-complete-time]');if(!button)return;e.preventDefault();if(button.disabled)return;const matching=orders.filter(o=>o.date===$('#selectedDate').value&&eligible(o)&&o.time===button.dataset.completeTime);if(!matching.length||matching.some(o=>orderRemaining(o)>0))return;mutate('完了を変更',()=>{for(const o of matching)o.productionCompleted=button.dataset.reopen!=='true';});});
-function tick(){$('#clock').textContent=new Date().toLocaleTimeString('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'});}tick();setInterval(()=>{tick();render();},10000);$('#refresh').onclick=()=>location.reload();$('#selectedDate').value=japanDate();render();
+function tick(){$('#clock').textContent=new Date().toLocaleTimeString('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'});}tick();setInterval(()=>{tick();render();},10000);$('#refresh').onclick=()=>location.reload();$('#selectedDate').value=orders.some(o=>o.date===japanDate())?japanDate():'2026-10-10';render();
